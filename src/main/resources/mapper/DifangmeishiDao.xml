@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cl.dao.DifangmeishiDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.cl.entity.DifangmeishiEntity" id="difangmeishiMap">
+        <result property="difangmingcheng" column="difangmingcheng"/>
+        <result property="meishimingcheng" column="meishimingcheng"/>
+        <result property="shicai" column="shicai"/>
+        <result property="kouweitedian" column="kouweitedian"/>
+        <result property="wenhuabeijing" column="wenhuabeijing"/>
+        <result property="diyutese" column="diyutese"/>
+        <result property="meishitupian" column="meishitupian"/>
+        <result property="clicktime" column="clicktime"/>
+    </resultMap>
+
+    <select id="selectListView"
+		resultType="com.cl.entity.view.DifangmeishiView" >
+
+		SELECT  difangmeishi.* FROM difangmeishi  difangmeishi 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.cl.entity.view.DifangmeishiView" >
+		SELECT * FROM difangmeishi  difangmeishi <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+</mapper>
